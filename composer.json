@@ -2,7 +2,8 @@
     "name": "diakudza/html",
     "autoload": {
         "psr-4": {
-            "User\\Html\\": "src/"
+            "App\\": "app/",
+            "Lib\\": "src/"
         }
     },
     "require": {

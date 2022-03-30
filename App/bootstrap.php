@@ -10,6 +10,7 @@ $container = new Container();
 
 AppFactory::setContainer($container);
 $app = AppFactory::create();
+
 $app->addRoutingMiddleware();
 
 //if (SLIM_APP_BASEPATH) $app->setBasePath(SLIM_APP_BASEPATH);
