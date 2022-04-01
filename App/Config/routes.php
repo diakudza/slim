@@ -9,7 +9,5 @@ use Psr\Http\Message\ResponseInterface;
 
 $app->get('/', Home::class . ':home');
 $app->get('/about', Home::class . ':about');
-
-
-//$app->get('/form', '\App\Modules\Form\Controller:show');
-//$app->post('/form', '\App\Modules\Form\Controller:create');
+$app->get('/form', '\App\Modules\Form\Controller:show');
+$app->post('/form', '\App\Modules\Form\Controller:create');
