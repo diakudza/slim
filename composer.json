@@ -2,8 +2,8 @@
     "name": "diakudza/html",
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Lib\\": "src/"
+            "App\\": "App/",
+            "Lib\\": "Src/"
         }
     },
     "require": {
@@ -12,6 +12,8 @@
         "php": "^7.4 || ^8.0",
         "ext-json": "*",
         "monolog/monolog": "^2.3",
-        "php-di/php-di": "^6.3"
+        "php-di/php-di": "^6.3",
+        "doctrine/dbal": "^3.3",
+        "ext-pdo": "*"
     }
 }

@@ -1,24 +1,23 @@
 <?php
 
+use DI\ContainerBuilder;
 use Slim\Factory\AppFactory;
-use DI\Container;
 
-require BASE_DIR . 'vendor/autoload.php';
-require BASE_DIR . 'Src/Core/functions.php';
+require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../Src/Core/functions.php';
 
-$container = new Container();
+$container = new ContainerBuilder();
+$settings = require __DIR__.'/../App/Config/settings.php';
+$settings($container);
+$container = $container->build();
 
 AppFactory::setContainer($container);
 $app = AppFactory::create();
 
+require __DIR__ . '/../App/Config/container.php';
+require __DIR__ . '/../App/Config/middleware.php';
+require __DIR__ . '/../App/Config/errorMiddleware.php';
+require __DIR__ . '/../App/Config/routes.php';
+
 $app->addRoutingMiddleware();
-
-//if (SLIM_APP_BASEPATH) $app->setBasePath(SLIM_APP_BASEPATH);
-
-require BASE_DIR . 'App/Config/container.php';
-//require BASE_DIR . 'App/Config/settings.php'; //пока отсутствуют
-require BASE_DIR . 'App/Config/middleware.php';
-require BASE_DIR . 'App/Config/errorMiddleware.php';
-require BASE_DIR . 'App/Config/routes.php';
-
 $app->run();
